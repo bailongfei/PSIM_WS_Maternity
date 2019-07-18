@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xh.mapper.PlaceDao">
+
+	<!-- 读取产房数据 -->
+	<!--  public List<int,String> getEmpsByPage();
+	      statementType="CALLABLE"：调用存储过程，默认是PREPARED
+	-->
+	<select id="call_Place" resultType="com.xh.vo.PlaceVo"  statementType="CALLABLE" >
+		exec	PS_WS_Place
+
+	</select>
+
+	<!-- 读取床位信息 -->
+	<select id="call_Bed" resultType="com.xh.vo.BedVo" parameterType="int"  statementType="CALLABLE" >
+		exec	PS_WS_Bed
+		#{Place_NO,mode=IN,jdbcType=NUMERIC}
+
+	</select>
+
+</mapper>

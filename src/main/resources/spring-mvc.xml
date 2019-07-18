@@ -36,6 +36,6 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
     <!-- 静态资源配置 -->
-    <mvc:resources location="/resouces/" mapping="/resouces/**"></mvc:resources>
-    <mvc:resources location="/admin/" mapping="/admin/**"></mvc:resources>
+    <!--<mvc:resources location="/resouces/" mapping="/resouces/**"></mvc:resources>
+    <mvc:resources location="/admin/" mapping="/admin/**"></mvc:resources>-->
 </beans>
