@@ -15,4 +15,12 @@
 
 	</select>
 
+    <!-- 下拉框所需数据 -->
+    <select id="call_DisplayType" resultType="com.xh.vo.DisplayTypeVo">
+        <![CDATA[
+            select * from Basic_DisplayType
+        ]]>
+
+    </select>
+
 </mapper>

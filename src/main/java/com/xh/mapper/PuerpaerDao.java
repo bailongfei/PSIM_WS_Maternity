@@ -17,7 +17,7 @@ public interface PuerpaerDao {
     Map<String,Object> updateMaternal(Map<String,Object> map);
 
     //根据床位Bed_ID获取相应的产妇信息
-    
+    Map<String,Object> read_Maternal(Map<String,Object> map);
 
 }
 

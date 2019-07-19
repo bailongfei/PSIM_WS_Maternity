@@ -44,4 +44,9 @@ public class PuerpaerService {
         return puerpaerDao.updateMaternal(map);
     }
 
+    public Map<String,Object> read_Maternal(Map<String,Object> map){
+
+        return puerpaerDao.read_Maternal(map);
+    }
+
 }

@@ -96,4 +96,20 @@ public class UserSoapImpl implements UserSoap {
 
         return JSONObject.toJSONString(materMap);
     }
+
+    @Override
+    public String read_Maternal(int Bed_ID) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("Bed_ID",Bed_ID);
+
+        Map<String,Object> readMaternalMap = puerpaerService.read_Maternal(map);
+
+        return JSONObject.toJSONString(readMaternalMap);
+    }
+
+    @Override
+    public String call_DisplayType() {
+
+        return userService.call_DisplayType();
+    }
 }
