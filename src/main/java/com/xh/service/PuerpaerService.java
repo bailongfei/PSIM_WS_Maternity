@@ -39,4 +39,9 @@ public class PuerpaerService {
         return JSONObject.toJSONString(map);
     }
 
+    public Map<String,Object> updateMaternal(Map<String,Object> map){
+
+        return puerpaerDao.updateMaternal(map);
+    }
+
 }

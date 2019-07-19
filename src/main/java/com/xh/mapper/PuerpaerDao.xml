@@ -27,4 +27,13 @@
 
 	</select>
 
+    <!-- 修改产妇状态信息 -->
+    <select id="updateMaternal" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE">
+        exec PS_WS_Udate_Maternal
+        #{Bed_ID,mode=IN,jdbcType=NUMERIC},
+        #{Display_ID,mode=IN,jdbcType=NUMERIC}
+
+
+    </select>
+
 </mapper>
