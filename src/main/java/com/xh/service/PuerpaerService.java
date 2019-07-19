@@ -22,7 +22,7 @@ public class PuerpaerService {
         return puerpaerDao.addMaternal(map);
     }
 
-    public String paer_Display(){
+    public String read_Display(){
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("result","0");
         map.put("resultInfo","服务调用失败！");
@@ -37,6 +37,11 @@ public class PuerpaerService {
         }
 
         return JSONObject.toJSONString(map);
+    }
+
+    public Map<String,Object> updateMaternal(Map<String,Object> map){
+
+        return puerpaerDao.updateMaternal(map);
     }
 
 }

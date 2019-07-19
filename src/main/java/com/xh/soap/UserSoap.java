@@ -48,4 +48,22 @@ public interface UserSoap {
     @WebResult(name = "displayResult",targetNamespace = "http://NurseService.xh.com")
     public String read_Display();
 
+    //根据床位Bed_ID获取相应床位产妇的信息
+
+
+    //修改产妇试产进度信息
+    /**
+     * 所需参数：
+     *      床位Id
+     *      产妇进度状态信息
+     *
+     *      返回参数： result  1
+     * */
+    @WebMethod(operationName = "updateMaternal",action = "http://NurseService.xh.com/updateMaternal")
+    @WebResult(name = "upMaterResult",targetNamespace = "http://NurseService.xh.com")
+    public String updateMaternal(
+            @WebParam(name = "Bed_ID") int Bed_ID,
+            @WebParam(name = "Display_ID") int Display_ID
+    );
+
 }
