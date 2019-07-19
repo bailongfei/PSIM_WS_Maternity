@@ -36,6 +36,22 @@
 
     </select>
 
+    <!-- 修改产妇状态信息 -->
+    <select id="update_CustomType" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE">
+        exec PS_WS_Update_CustomType
+        #{Bed_ID,mode=IN,jdbcType=NUMERIC},
+        #{Custom_Type,mode=IN,jdbcType=VARCHAR}
+
+    </select>
+
+    <!-- 修改自定义呼叫信息 -->
+    <select id="update_Broadcast" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE">
+        exec PS_WS_Update_Broadcast
+        #{Bed_ID,mode=IN,jdbcType=NUMERIC},
+        #{Custom_Broadcast,mode=IN,jdbcType=VARCHAR}
+
+    </select>
+
     <!-- 根据Bed_ID获取产妇信息 -->
     <select id="read_Maternal" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE">
         exec PS_WS_BedID_Read_Maternal

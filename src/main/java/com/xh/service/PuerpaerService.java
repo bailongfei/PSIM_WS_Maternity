@@ -49,4 +49,14 @@ public class PuerpaerService {
         return puerpaerDao.read_Maternal(map);
     }
 
+    public Map<String,Object> update_CustomType(Map<String,Object> map){
+
+        return puerpaerDao.update_CustomType(map);
+    }
+
+    public Map<String,Object> update_Broadcast(Map<String,Object> map){
+
+        return puerpaerDao.update_Broadcast(map);
+    }
+
 }

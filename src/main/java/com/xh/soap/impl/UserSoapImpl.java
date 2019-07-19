@@ -87,17 +87,6 @@ public class UserSoapImpl implements UserSoap {
     }
 
     @Override
-    public String updateMaternal(int Bed_ID, int Display_ID) {
-        Map<String,Object> map = new LinkedHashMap<>();
-        map.put("Bed_ID",Bed_ID);
-        map.put("Display_ID",Display_ID);
-
-        Map<String,Object> materMap = puerpaerService.updateMaternal(map);
-
-        return JSONObject.toJSONString(materMap);
-    }
-
-    @Override
     public String read_Maternal(int Bed_ID) {
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("Bed_ID",Bed_ID);
@@ -111,5 +100,38 @@ public class UserSoapImpl implements UserSoap {
     public String call_DisplayType() {
 
         return userService.call_DisplayType();
+    }
+
+    @Override
+    public String updateMaternal(int Bed_ID, int Display_ID) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("Bed_ID",Bed_ID);
+        map.put("Display_ID",Display_ID);
+
+        Map<String,Object> materMap = puerpaerService.updateMaternal(map);
+
+        return JSONObject.toJSONString(materMap);
+    }
+
+    @Override
+    public String update_CustomType(int Bed_ID, String Custom_Type) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("Bed_ID",Bed_ID);
+        map.put("Custom_Type",Custom_Type);
+
+        Map<String,Object> customTypeMap = puerpaerService.update_CustomType(map);
+
+        return JSONObject.toJSONString(customTypeMap);
+    }
+
+    @Override
+    public String update_Broadcast(int Bed_ID, String Custom_Broadcast) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("Bed_ID",Bed_ID);
+        map.put("Custom_Broadcast",Custom_Broadcast);
+
+        Map<String,Object> broadcastMap = puerpaerService.update_Broadcast(map);
+
+        return JSONObject.toJSONString(broadcastMap);
     }
 }

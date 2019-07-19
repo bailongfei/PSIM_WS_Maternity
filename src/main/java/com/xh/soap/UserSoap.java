@@ -56,23 +56,6 @@ public interface UserSoap {
     @WebResult(name = "displayResult",targetNamespace = "http://NurseService.xh.com")
     public String read_Display();
 
-    //根据床位Bed_ID获取相应床位产妇的信息
-
-
-    //修改产妇试产进度信息
-    /**
-     * 所需参数：
-     *      床位Id
-     *      产妇进度状态信息
-     *
-     * 返回参数： result  1
-     * */
-    @WebMethod(operationName = "updateMaternal",action = "http://NurseService.xh.com/updateMaternal")
-    @WebResult(name = "upMaterResult",targetNamespace = "http://NurseService.xh.com")
-    public String updateMaternal(
-            @WebParam(name = "Bed_ID") int Bed_ID,
-            @WebParam(name = "Display_ID") int Display_ID
-    );
 
     //根据Bed_ID获取相应产房进度状态信息
     /**所需参数：
@@ -97,5 +80,50 @@ public interface UserSoap {
     @WebMethod(operationName = "call_DisplayType",action = "http://NurseService.xh.com/call_DisplayType")
     @WebResult(name = "displayTypeResult",targetNamespace = "http://NurseService.xh.com")
     public String call_DisplayType();
+
+    //修改产妇试产进度状态信息
+    /**
+     * 所需参数：
+     *      床位Id
+     *      产妇进度状态信息
+     *
+     * 返回参数： result  1
+     * */
+    @WebMethod(operationName = "updateMaternal",action = "http://NurseService.xh.com/updateMaternal")
+    @WebResult(name = "upMaterResult",targetNamespace = "http://NurseService.xh.com")
+    public String updateMaternal(
+            @WebParam(name = "Bed_ID") int Bed_ID,
+            @WebParam(name = "Display_ID") int Display_ID
+    );
+
+    //修改产妇试产自定义进度状态信息 update_Broadcast
+    /**
+     * 所需参数：
+     *      床位Id
+     *      产妇自定义进度状态信息
+     *
+     * 返回参数： result  1
+     * */
+    @WebMethod(operationName = "update_CustomType",action = "http://NurseService.xh.com/update_CustomType")
+    @WebResult(name = "upCustomTypeResult",targetNamespace = "http://NurseService.xh.com")
+    public String update_CustomType(
+            @WebParam(name = "Bed_ID") int Bed_ID,
+            @WebParam(name = "Custom_Type") String Custom_Type
+    );
+
+    //修改自定义呼叫信息
+    /**
+     * 所需参数：
+     *      床位Id
+     *      自定义呼叫内容
+     *
+     * 返回参数： result  1
+     * */
+    @WebMethod(operationName = "update_Broadcast",action = "http://NurseService.xh.com/update_Broadcast")
+    @WebResult(name = "upCustomTypeResult",targetNamespace = "http://NurseService.xh.com")
+    public String update_Broadcast(
+            @WebParam(name = "Bed_ID") int Bed_ID,
+            @WebParam(name = "Custom_Broadcast") String Custom_Broadcast
+    );
 
 }
