@@ -83,7 +83,7 @@ public class UserSoapImpl implements UserSoap {
     @Override
     public String read_Display() {
 
-        return puerpaerService.paer_Display();
+        return puerpaerService.read_Display();
     }
 
 }
