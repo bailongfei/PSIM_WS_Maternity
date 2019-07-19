@@ -9,6 +9,7 @@ public class PlaceVo {
     private String Place_Flag;
     private String Place_Note;
     private int Place_Status;
+    private int available_bed_Count;
 
     @Override
     public String toString() {
@@ -19,7 +20,16 @@ public class PlaceVo {
                 ", Place_Flag='" + Place_Flag + '\'' +
                 ", Place_Note='" + Place_Note + '\'' +
                 ", Place_Status=" + Place_Status +
+                ", available_bed_Count=" + available_bed_Count +
                 '}';
+    }
+
+    public int getAvailable_bed_Count() {
+        return available_bed_Count;
+    }
+
+    public void setAvailable_bed_Count(int available_bed_Count) {
+        this.available_bed_Count = available_bed_Count;
     }
 
     public int getPlace_NO() {
