@@ -5,14 +5,10 @@ import com.xh.service.PlaceService;
 import com.xh.service.PuerpaerService;
 import com.xh.service.UserService;
 import com.xh.soap.UserSoap;
-import com.xh.vo.BedVo;
 
 import javax.annotation.Resource;
 import javax.jws.WebService;
-import java.sql.SQLOutput;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 @WebService(name = "NurseService",targetNamespace = "http://NurseService.xh.com",endpointInterface = "com.xh.soap.UserSoap",serviceName = "NurseServiceName",portName = "NursePortName")
@@ -44,7 +40,7 @@ public class UserSoapImpl implements UserSoap {
     }
 
     @Override
-    public String call_Bed(int Place_NO) {
+    public String call_Bed(String Place_NO) {
 //        List<BedVo> bedList = ;
 //        for (int i=0; i<bedList.size();i++){
 //            System.out.println(bedList.get(i));
@@ -94,6 +90,13 @@ public class UserSoapImpl implements UserSoap {
         Map<String,Object> readMaternalMap = puerpaerService.read_Maternal(map);
 
         return JSONObject.toJSONString(readMaternalMap);
+    }
+
+    @Override
+    public String disPlay_Title() {
+        Map<String,Object> titleMap = puerpaerService.disPlay_Title();
+
+        return JSONObject.toJSONString(titleMap);
     }
 
     @Override

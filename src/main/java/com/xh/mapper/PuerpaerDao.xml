@@ -27,6 +27,12 @@
 
 	</select>
 
+    <!-- 大屏显示标题和滚动信息 -->
+    <select id="disPlay_Title" resultType="java.util.Map"  statementType="CALLABLE">
+        exec PS_WS_Find_DisplayTitle
+
+    </select>
+
     <!-- 修改产妇状态信息 -->
     <select id="updateMaternal" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE">
         exec PS_WS_Udate_Maternal

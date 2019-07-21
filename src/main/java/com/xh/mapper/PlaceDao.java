@@ -8,6 +8,6 @@ public interface PlaceDao {
 
     List<PlaceVo> call_Place();
 
-    List<BedVo> call_Bed(int Place_NO);
+    List<BedVo> call_Bed(String Place_NO);
 
 }

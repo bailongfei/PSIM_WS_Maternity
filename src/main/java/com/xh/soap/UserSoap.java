@@ -1,7 +1,5 @@
 package com.xh.soap;
 
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -27,7 +25,7 @@ public interface UserSoap {
     @WebMethod(operationName = "call_Bed",action = "http://NurseService.xh.com/call_Bed")
     @WebResult(name = "bedResult",targetNamespace = "http://NurseService.xh.com")
     public String call_Bed(
-            @WebParam(name = "Place_NO") int Place_NO
+            @WebParam(name = "Place_NO") String Place_NO
     );
 
     //新增产妇信息表数据
@@ -56,6 +54,16 @@ public interface UserSoap {
     @WebResult(name = "displayResult",targetNamespace = "http://NurseService.xh.com")
     public String read_Display();
 
+    //大屏显示标题和滚动信息
+    /**所需参数：
+     *     无
+     *
+     * 返回参数：
+     *      大屏显示标题、滚动信息
+     * */
+    @WebMethod(operationName = "disPlay_Title",action = "http://NurseService.xh.com/disPlay_Title")
+    @WebResult(name = "titleResult",targetNamespace = "http://NurseService.xh.com")
+    public String disPlay_Title();
 
     //根据Bed_ID获取相应产房进度状态信息
     /**所需参数：

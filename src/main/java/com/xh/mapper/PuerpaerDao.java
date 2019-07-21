@@ -14,6 +14,9 @@ public interface PuerpaerDao {
     //大屏显示产妇试产进度状态信息
     List<DisplayVo> read_Display();
 
+    //大屏显示标题和滚动信息
+    Map<String,Object> disPlay_Title();
+
     //根据床位Bed_ID获取相应的产妇信息
     Map<String,Object> read_Maternal(Map<String,Object> map);
 

@@ -14,7 +14,7 @@
 	</select>
 
 	<!-- 读取床位信息 -->
-	<select id="call_Bed" resultType="com.xh.vo.BedVo" parameterType="int"  statementType="CALLABLE" >
+	<select id="call_Bed" resultType="com.xh.vo.BedVo" parameterType="String"  statementType="CALLABLE" >
 		exec	PS_WS_Bed
 		#{Place_NO,mode=IN,jdbcType=NUMERIC}
 
