@@ -3,6 +3,7 @@ package com.xh.service;
 import com.alibaba.fastjson.JSONObject;
 import com.xh.mapper.PlaceDao;
 import com.xh.vo.BedVo;
+import com.xh.vo.FindMaternalVo;
 import com.xh.vo.PlaceVo;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,25 @@ public class PlaceService {
             map.put("result","1");
             map.put("resultInfo","服务调用成功！");
             map.put("data",placeVos);
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put("resultInfo","服务调用异常!\t"+e.getMessage());
+        }
+
+        return JSONObject.toJSONString(map);
+    }
+
+    public String findMaternal(String Puerpaer_Name,String Bed_Name,int Puerpaer_Status){
+//        System.out.println("Puerpaer_Name："+Puerpaer_Name+"，Bed_Name："+Bed_Name+"，Puerpaer_Status："+Puerpaer_Status);
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("result","0");
+        map.put("resultInfo","服务调用失败！");
+        try{
+            System.out.println("Puerpaer_Name："+Puerpaer_Name+"，Bed_Name："+Bed_Name+"，Puerpaer_Status："+Puerpaer_Status);
+            List<FindMaternalVo> findMaternalVos = placeDao.findMaternal(Puerpaer_Name,Bed_Name,Puerpaer_Status);
+            map.put("result","1");
+            map.put("resultInfo","服务调用成功！");
+            map.put("data",findMaternalVos);
         }catch (Exception e){
             e.printStackTrace();
             map.put("resultInfo","服务调用异常!\t"+e.getMessage());

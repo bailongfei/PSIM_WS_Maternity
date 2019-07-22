@@ -134,4 +134,26 @@ public interface UserSoap {
             @WebParam(name = "Custom_Broadcast") String Custom_Broadcast
     );
 
+    //查询
+    /**
+     * 所需参数：
+     *      产妇姓名
+     *      床位编号
+     *      是否出院状态
+     *
+     * 返回参数：
+     *      result  1
+     *      resultInfo 调用成功
+     *      date：
+     *          产房序号，特殊标符、床位ID、床位编号、床位状态、
+     *          产妇姓名、试产进度状态、自定义显示状态、自定义呼叫信息
+     * */
+    @WebMethod(operationName = "findMaternal",action = "http://NurseService.xh.com/findMaternal")
+    @WebResult(name = "findMaternalResult",targetNamespace = "http://NurseService.xh.com")
+    public String findMaternal(
+            @WebParam(name = "Puerpaer_Name") String Puerpaer_Name,
+            @WebParam(name = "Bed_Name") String Bed_Name,
+            @WebParam(name = "Puerpaer_Status") int Puerpaer_Status
+    );
+
 }

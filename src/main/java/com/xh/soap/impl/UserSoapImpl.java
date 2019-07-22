@@ -137,4 +137,10 @@ public class UserSoapImpl implements UserSoap {
 
         return JSONObject.toJSONString(broadcastMap);
     }
+
+    @Override
+    public String findMaternal(String Puerpaer_Name, String Bed_Name, int Puerpaer_Status) {
+
+        return placeService.findMaternal(Puerpaer_Name,Bed_Name,Puerpaer_Status);
+    }
 }
