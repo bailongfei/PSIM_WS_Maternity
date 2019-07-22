@@ -44,7 +44,7 @@ public class UserSoapImpl implements UserSoap {
     }
 
     @Override
-    public String call_Bed(int Place_NO) {
+    public String call_Bed(String Place_NO) {
 //        List<BedVo> bedList = ;
 //        for (int i=0; i<bedList.size();i++){
 //            System.out.println(bedList.get(i));

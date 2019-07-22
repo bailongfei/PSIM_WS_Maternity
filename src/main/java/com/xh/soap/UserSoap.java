@@ -25,7 +25,7 @@ public interface UserSoap {
     @WebMethod(operationName = "call_Bed",action = "http://NurseService.xh.com/call_Bed")
     @WebResult(name = "bedResult",targetNamespace = "http://NurseService.xh.com")
     public String call_Bed(
-            @WebParam(name = "Place_NO") int Place_NO
+            @WebParam(name = "Place_NO") String Place_NO
     );
 
     //新增产妇信息表数据

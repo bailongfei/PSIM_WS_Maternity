@@ -35,7 +35,7 @@ public class PlaceService {
         return JSONObject.toJSONString(map);
     }
 
-    public String call_Bed(int Place_NO){
+    public String call_Bed(String Place_NO){
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("result","0");
         map.put("resultInfo","服务调用失败！");

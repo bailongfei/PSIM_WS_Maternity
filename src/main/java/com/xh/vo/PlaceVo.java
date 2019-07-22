@@ -3,7 +3,7 @@ package com.xh.vo;
 
 public class PlaceVo {
 
-    private int Place_NO;
+    private String Place_NO;
     private String Place_Name;
     private String Place_Type;
     private String Place_Flag;
@@ -11,10 +11,11 @@ public class PlaceVo {
     private int Place_Status;
     private int available_bed_Count;
 
+
     @Override
     public String toString() {
         return "PlaceVo{" +
-                "Place_NO=" + Place_NO +
+                "Place_NO='" + Place_NO + '\'' +
                 ", Place_Name='" + Place_Name + '\'' +
                 ", Place_Type='" + Place_Type + '\'' +
                 ", Place_Flag='" + Place_Flag + '\'' +
@@ -24,19 +25,11 @@ public class PlaceVo {
                 '}';
     }
 
-    public int getAvailable_bed_Count() {
-        return available_bed_Count;
-    }
-
-    public void setAvailable_bed_Count(int available_bed_Count) {
-        this.available_bed_Count = available_bed_Count;
-    }
-
-    public int getPlace_NO() {
+    public String getPlace_NO() {
         return Place_NO;
     }
 
-    public void setPlace_NO(int place_NO) {
+    public void setPlace_NO(String place_NO) {
         Place_NO = place_NO;
     }
 
@@ -78,5 +71,13 @@ public class PlaceVo {
 
     public void setPlace_Status(int place_Status) {
         Place_Status = place_Status;
+    }
+
+    public int getAvailable_bed_Count() {
+        return available_bed_Count;
+    }
+
+    public void setAvailable_bed_Count(int available_bed_Count) {
+        this.available_bed_Count = available_bed_Count;
     }
 }
