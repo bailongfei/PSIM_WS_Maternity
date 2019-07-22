@@ -59,7 +59,8 @@ public class UserSoapImpl implements UserSoap {
 
     @Override
     public String addMaternal(String Puerpaer_Name, int Puerpaer_Sex, int Puerpaer_Age, int Bed_ID,
-                 int DisplayType_ID, String Custom_Type, String Custom_Broadcast, int Puerpaer_Status)
+                 int DisplayType_ID, String Custom_Type, String Custom_Broadcast, int Puerpaer_Status,
+                 int DisplayStatus)
     {
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("Puerpaer_Name",Puerpaer_Name);
@@ -70,6 +71,7 @@ public class UserSoapImpl implements UserSoap {
         map.put("Custom_Type",Custom_Type);
         map.put("Custom_Broadcast",Custom_Broadcast);
         map.put("Puerpaer_Status",Puerpaer_Status);
+        map.put("DisplayStatus",DisplayStatus);
 
         Map<String,Object> addMap = puerpaerService.addMaternal(map);
 
@@ -97,6 +99,16 @@ public class UserSoapImpl implements UserSoap {
         Map<String,Object> titleMap = puerpaerService.disPlay_Title();
 
         return JSONObject.toJSONString(titleMap);
+    }
+
+    @Override
+    public String updateDisplayTitle(String Display_IP, String Display_Title, String Display_Scroll_Text) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("Display_IP",Display_IP);
+        map.put("Display_Title",Display_Title);
+        map.put("Display_Scroll_Text",Display_Scroll_Text);
+
+        return puerpaerService.updateDisplayTitle(map);
     }
 
     @Override

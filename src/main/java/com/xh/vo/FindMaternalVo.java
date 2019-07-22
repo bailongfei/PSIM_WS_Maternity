@@ -12,6 +12,7 @@ public class FindMaternalVo {
     private String DisplayType_Status; //产妇试产进度状态
     private String Custom_Type;      //自定义显示状态
     private String Custom_Broadcast; //自定义呼叫信息
+    private int DisplayStatus;      //1、0
 
     @Override
     public String toString() {
@@ -25,7 +26,16 @@ public class FindMaternalVo {
                 ", DisplayType_Status='" + DisplayType_Status + '\'' +
                 ", Custom_Type='" + Custom_Type + '\'' +
                 ", Custom_Broadcast='" + Custom_Broadcast + '\'' +
+                ", DisplayStatus=" + DisplayStatus +
                 '}';
+    }
+
+    public int getDisplayStatus() {
+        return DisplayStatus;
+    }
+
+    public void setDisplayStatus(int displayStatus) {
+        DisplayStatus = displayStatus;
     }
 
     public String getPlace_NO() {

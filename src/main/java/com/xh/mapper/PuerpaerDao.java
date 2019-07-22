@@ -17,6 +17,9 @@ public interface PuerpaerDao {
     //大屏显示标题和滚动信息
     Map<String,Object> disPlay_Title();
 
+    //修改大屏显示标题和滚动信息
+    Map<String,Object> updateDisplayTitle(Map<String,Object> map);
+
     //根据床位Bed_ID获取相应的产妇信息
     Map<String,Object> read_Maternal(Map<String,Object> map);
 

@@ -39,8 +39,8 @@ public interface UserSoap {
             @WebParam(name = "DisplayType_ID") int DisplayType_ID,
             @WebParam(name = "Custom_Type") String Custom_Type,
             @WebParam(name = "Custom_Broadcast") String Custom_Broadcast,
-            @WebParam(name = "Puerpaer_Status") int Puerpaer_Status
-
+            @WebParam(name = "Puerpaer_Status") int Puerpaer_Status,
+            @WebParam(name = "DisplayStatus") int DisplayStatus
     );
 
     //大屏显示产妇试产进度信息
@@ -64,6 +64,23 @@ public interface UserSoap {
     @WebMethod(operationName = "disPlay_Title",action = "http://NurseService.xh.com/disPlay_Title")
     @WebResult(name = "titleResult",targetNamespace = "http://NurseService.xh.com")
     public String disPlay_Title();
+
+    //对大屏显示的标题和滚动信息进行修改显示
+    /**所需参数：
+     *      Display_IP              设备IP
+     *      Display_Title           标题
+     *      Display_Scroll_Text     滚动信息
+     * 返回参数：
+     *      result 1 、resultInfo ''
+     *
+     * */
+    @WebMethod(operationName = "updateDisplayTitle",action = "http://NurseService.xh.com/updateDisplayTitle")
+    @WebResult(name = "upDpTitleResult",targetNamespace = "http://NurseService.xh.com")
+    public String updateDisplayTitle(
+            @WebParam(name = "Display_IP") String Display_IP,
+            @WebParam(name = "Display_Title") String Display_Title,
+            @WebParam(name = "Display_Scroll_Text") String Display_Scroll_Text
+    );
 
     //根据Bed_ID获取相应产房进度状态信息
     /**所需参数：
@@ -155,5 +172,8 @@ public interface UserSoap {
             @WebParam(name = "Bed_Name") String Bed_Name,
             @WebParam(name = "Puerpaer_Status") int Puerpaer_Status
     );
+
+    //安全退出登录
+
 
 }
