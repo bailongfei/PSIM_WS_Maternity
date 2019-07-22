@@ -39,9 +39,29 @@ public class PuerpaerService {
         return JSONObject.toJSONString(map);
     }
 
+    public Map<String,Object> disPlay_Title(){
+
+        return puerpaerDao.disPlay_Title();
+    }
+
     public Map<String,Object> updateMaternal(Map<String,Object> map){
 
         return puerpaerDao.updateMaternal(map);
+    }
+
+    public Map<String,Object> read_Maternal(Map<String,Object> map){
+
+        return puerpaerDao.read_Maternal(map);
+    }
+
+    public Map<String,Object> update_CustomType(Map<String,Object> map){
+
+        return puerpaerDao.update_CustomType(map);
+    }
+
+    public Map<String,Object> update_Broadcast(Map<String,Object> map){
+
+        return puerpaerDao.update_Broadcast(map);
     }
 
 }

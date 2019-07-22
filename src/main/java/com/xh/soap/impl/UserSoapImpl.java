@@ -5,14 +5,10 @@ import com.xh.service.PlaceService;
 import com.xh.service.PuerpaerService;
 import com.xh.service.UserService;
 import com.xh.soap.UserSoap;
-import com.xh.vo.BedVo;
 
 import javax.annotation.Resource;
 import javax.jws.WebService;
-import java.sql.SQLOutput;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 @WebService(name = "NurseService",targetNamespace = "http://NurseService.xh.com",endpointInterface = "com.xh.soap.UserSoap",serviceName = "NurseServiceName",portName = "NursePortName")
@@ -87,6 +83,29 @@ public class UserSoapImpl implements UserSoap {
     }
 
     @Override
+    public String read_Maternal(int Bed_ID) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("Bed_ID",Bed_ID);
+
+        Map<String,Object> readMaternalMap = puerpaerService.read_Maternal(map);
+
+        return JSONObject.toJSONString(readMaternalMap);
+    }
+
+    @Override
+    public String disPlay_Title() {
+        Map<String,Object> titleMap = puerpaerService.disPlay_Title();
+
+        return JSONObject.toJSONString(titleMap);
+    }
+
+    @Override
+    public String call_DisplayType() {
+
+        return userService.call_DisplayType();
+    }
+
+    @Override
     public String updateMaternal(int Bed_ID, int Display_ID) {
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("Bed_ID",Bed_ID);
@@ -95,5 +114,33 @@ public class UserSoapImpl implements UserSoap {
         Map<String,Object> materMap = puerpaerService.updateMaternal(map);
 
         return JSONObject.toJSONString(materMap);
+    }
+
+    @Override
+    public String update_CustomType(int Bed_ID, String Custom_Type) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("Bed_ID",Bed_ID);
+        map.put("Custom_Type",Custom_Type);
+
+        Map<String,Object> customTypeMap = puerpaerService.update_CustomType(map);
+
+        return JSONObject.toJSONString(customTypeMap);
+    }
+
+    @Override
+    public String update_Broadcast(int Bed_ID, String Custom_Broadcast) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("Bed_ID",Bed_ID);
+        map.put("Custom_Broadcast",Custom_Broadcast);
+
+        Map<String,Object> broadcastMap = puerpaerService.update_Broadcast(map);
+
+        return JSONObject.toJSONString(broadcastMap);
+    }
+
+    @Override
+    public String findMaternal(String Puerpaer_Name, String Bed_Name, int Puerpaer_Status) {
+
+        return placeService.findMaternal(Puerpaer_Name,Bed_Name,Puerpaer_Status);
     }
 }
