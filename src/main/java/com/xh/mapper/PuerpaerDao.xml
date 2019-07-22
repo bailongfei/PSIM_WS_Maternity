@@ -17,7 +17,8 @@
 		#{DisplayType_ID,mode=IN,jdbcType=NUMERIC},
 		#{Custom_Type,mode=IN,jdbcType=VARCHAR},
 		#{Custom_Broadcast,mode=IN,jdbcType=VARCHAR},
-		#{Puerpaer_Status,mode=IN,jdbcType=NUMERIC}
+		#{Puerpaer_Status,mode=IN,jdbcType=NUMERIC},
+        #{DisplayStatus,mode=IN,jdbcType=NUMERIC}
 
 	</select>
 
@@ -30,6 +31,14 @@
     <!-- 大屏显示标题和滚动信息 -->
     <select id="disPlay_Title" resultType="java.util.Map"  statementType="CALLABLE">
         exec PS_WS_Find_DisplayTitle
+
+    </select>
+
+    <select id="updateDisplayTitle" parameterType="map" resultType="java.util.Map" statementType="CALLABLE">
+        exec PS_WS_Update_DisplayTitle
+          #{Display_IP,mode=IN,jdbcType=VARCHAR},
+          #{Display_Title,mode=IN,jdbcType=VARCHAR},
+          #{Display_Scroll_Text,mode=IN,jdbcType=VARCHAR}
 
     </select>
 

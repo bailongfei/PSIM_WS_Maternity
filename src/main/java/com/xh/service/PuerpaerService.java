@@ -44,6 +44,23 @@ public class PuerpaerService {
         return puerpaerDao.disPlay_Title();
     }
 
+    public String updateDisplayTitle(Map<String,Object> map){
+        Map<String,Object> map1 = new LinkedHashMap<>();
+        map1.put("result","0");
+        map1.put("resultInfo","服务调用失败！");
+        try{
+            Map<String,Object> displayTitleVos = puerpaerDao.updateDisplayTitle(map);
+            map1.put("result","1");
+            map1.put("resultInfo","服务调用成功！");
+            map1.put("data",displayTitleVos);
+        }catch (Exception e){
+            e.printStackTrace();
+            map1.put("resultInfo","服务调用异常!\t"+e.getMessage());
+        }
+
+        return JSONObject.toJSONString(map1);
+    }
+
     public Map<String,Object> updateMaternal(Map<String,Object> map){
 
         return puerpaerDao.updateMaternal(map);
