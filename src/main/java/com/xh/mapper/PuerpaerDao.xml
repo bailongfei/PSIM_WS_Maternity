@@ -29,9 +29,9 @@
 	</select>
 
     <!-- 大屏显示标题和滚动信息 -->
-    <select id="disPlay_Title" resultType="java.util.Map"  statementType="CALLABLE">
+    <select id="disPlay_Title" parameterType="int" resultType="java.util.Map"  statementType="CALLABLE">
         exec PS_WS_Find_DisplayTitle
-
+        #{Display_IP,mode=IN,jdbcType=VARCHAR}
     </select>
 
     <select id="updateDisplayTitle" parameterType="map" resultType="java.util.Map" statementType="CALLABLE">
@@ -71,6 +71,14 @@
     <select id="read_Maternal" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE">
         exec PS_WS_BedID_Read_Maternal
         #{Bed_ID,mode=IN,jdbcType=NUMERIC}
+
+    </select>
+
+    <!-- 修改产妇出院后的状态及相应的床位状态 -->
+    <select id="updateStatus" parameterType="map" resultType="java.util.Map" statementType="CALLABLE">
+        exec PS_WS_Update_Status
+        #{Bed_ID,mode=IN,jdbcType=NUMERIC},
+        #{Puerpaer_Name,mode=IN,jdbcType=VARCHAR}
 
     </select>
 
