@@ -39,9 +39,9 @@ public class PuerpaerService {
         return JSONObject.toJSONString(map);
     }
 
-    public Map<String,Object> disPlay_Title(){
+    public Map<String,Object> disPlay_Title(String Display_IP){
 
-        return puerpaerDao.disPlay_Title();
+        return puerpaerDao.disPlay_Title(Display_IP);
     }
 
     public String updateDisplayTitle(Map<String,Object> map){
@@ -79,6 +79,11 @@ public class PuerpaerService {
     public Map<String,Object> update_Broadcast(Map<String,Object> map){
 
         return puerpaerDao.update_Broadcast(map);
+    }
+
+    public Map<String,Object> updateStatus(Map<String,Object> map){
+
+        return puerpaerDao.updateStatus(map);
     }
 
 }

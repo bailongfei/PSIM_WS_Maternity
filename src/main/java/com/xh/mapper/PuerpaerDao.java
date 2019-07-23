@@ -15,7 +15,7 @@ public interface PuerpaerDao {
     List<DisplayVo> read_Display();
 
     //大屏显示标题和滚动信息
-    Map<String,Object> disPlay_Title();
+    Map<String,Object> disPlay_Title(String Display_IP);
 
     //修改大屏显示标题和滚动信息
     Map<String,Object> updateDisplayTitle(Map<String,Object> map);
@@ -31,6 +31,9 @@ public interface PuerpaerDao {
 
     //修改自定义呼叫信息
     Map<String,Object> update_Broadcast(Map<String,Object> map);
+
+    //修改产妇出院状态及相应床位状态
+    Map<String,Object> updateStatus(Map<String,Object> map);
 
 }
 

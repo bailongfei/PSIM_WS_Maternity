@@ -95,8 +95,8 @@ public class UserSoapImpl implements UserSoap {
     }
 
     @Override
-    public String disPlay_Title() {
-        Map<String,Object> titleMap = puerpaerService.disPlay_Title();
+    public String disPlay_Title(String Display_IP) {
+        Map<String,Object> titleMap = puerpaerService.disPlay_Title(Display_IP);
 
         return JSONObject.toJSONString(titleMap);
     }
@@ -155,4 +155,16 @@ public class UserSoapImpl implements UserSoap {
 
         return placeService.findMaternal(Puerpaer_Name,Bed_Name,Puerpaer_Status);
     }
+
+    @Override
+    public String updateStatus(int Bed_ID, String Puerpaer_Name) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("Bed_ID",Bed_ID);
+        map.put("Puerpaer_Name",Puerpaer_Name);
+
+        Map<String,Object> statusMap = puerpaerService.updateStatus(map);
+
+        return JSONObject.toJSONString(statusMap);
+    }
+
 }

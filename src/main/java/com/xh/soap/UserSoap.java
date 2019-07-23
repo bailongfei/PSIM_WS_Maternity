@@ -63,7 +63,9 @@ public interface UserSoap {
      * */
     @WebMethod(operationName = "disPlay_Title",action = "http://NurseService.xh.com/disPlay_Title")
     @WebResult(name = "titleResult",targetNamespace = "http://NurseService.xh.com")
-    public String disPlay_Title();
+    public String disPlay_Title(
+            @WebParam(name = "Display_IP") String Display_IP
+    );
 
     //对大屏显示的标题和滚动信息进行修改显示
     /**所需参数：
@@ -173,7 +175,24 @@ public interface UserSoap {
             @WebParam(name = "Puerpaer_Status") int Puerpaer_Status
     );
 
-    //安全退出登录
+    //修改产妇出院的状态及床位状态
+    /**
+     * 所需参数：
+     *      Bed_ID              床位编号
+     *      Puerpaer_Name       产妇姓名
+     *
+     * 返回参数：
+     *      result  1/0    调用成功/调用失败
+     *      resultInfo     ''
+     *
+     * */
+    @WebMethod(operationName = "updateStatus",action = "http://NurseService.xh.com/updateStatus")
+    @WebResult(name = "upStatusResult",targetNamespace = "http://NurseService.xh.com")
+    public String updateStatus(
+            @WebParam(name = "Bed_ID") int Bed_ID,
+            @WebParam(name = "Puerpaer_Name") String Puerpaer_Name
+    );
 
+    //安全退出登录
 
 }
