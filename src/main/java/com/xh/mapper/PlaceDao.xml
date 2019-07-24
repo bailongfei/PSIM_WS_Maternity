@@ -21,9 +21,9 @@
 	</select>
 
     <!-- 查询产妇 -->
-    <select id="findMaternal" resultType="com.xh.vo.FindMaternalVo">
+    <select id="findMaternal" resultType="com.xh.vo.FindMaternalVo" flushCache="true">
         <![CDATA[
-            select b_Place.Place_NO,b_Place.Place_Flag,b_Bed.Bed_ID,b_Bed.Bed_Name,b_Bed.Bed_Status,b_Puerpaer.Puerpaer_Name,b_DisplayType.DisplayType_Status,
+            select b_Place.Place_NO,b_Place.Place_Flag,b_Bed.Bed_ID,b_Bed.Bed_Name,b_Bed.Bed_Status,b_Puerpaer.Puerpaer_Name,B_Puerpaer.DisplayType_ID,b_DisplayType.DisplayType_Status,
             b_Puerpaer.Custom_Type,B_Puerpaer.Custom_Broadcast,b_Puerpaer.DisplayStatus from Basic_Puerpaer B_Puerpaer
             inner join Basic_Bed b_Bed on b_Puerpaer.Bed_ID = b_Bed.Bed_ID
             inner join Basic_Place b_Place on b_Place.Place_ID = b_Bed.Place_ID

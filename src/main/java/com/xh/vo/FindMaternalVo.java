@@ -9,6 +9,7 @@ public class FindMaternalVo {
     private String Bed_Name;    //床位号
     private String Bed_Status;  //床位状态：1可用，0不可用
     private String Puerpaer_Name; //产妇姓名
+    private int DisplayType_ID;     //产妇试产进度状态Id
     private String DisplayType_Status; //产妇试产进度状态
     private String Custom_Type;      //自定义显示状态
     private String Custom_Broadcast; //自定义呼叫信息
@@ -23,11 +24,20 @@ public class FindMaternalVo {
                 ", Bed_Name='" + Bed_Name + '\'' +
                 ", Bed_Status='" + Bed_Status + '\'' +
                 ", Puerpaer_Name='" + Puerpaer_Name + '\'' +
+                ", DisplayType_ID=" + DisplayType_ID +
                 ", DisplayType_Status='" + DisplayType_Status + '\'' +
                 ", Custom_Type='" + Custom_Type + '\'' +
                 ", Custom_Broadcast='" + Custom_Broadcast + '\'' +
                 ", DisplayStatus=" + DisplayStatus +
                 '}';
+    }
+
+    public int getDisplayType_ID() {
+        return DisplayType_ID;
+    }
+
+    public void setDisplayType_ID(int displayType_ID) {
+        DisplayType_ID = displayType_ID;
     }
 
     public int getDisplayStatus() {
