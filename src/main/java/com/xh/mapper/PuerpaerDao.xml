@@ -29,7 +29,7 @@
 	</select>
 
     <!-- 大屏显示标题和滚动信息 -->
-    <select id="disPlay_Title" parameterType="int" resultType="java.util.Map"  statementType="CALLABLE">
+    <select id="disPlay_Title" parameterType="String" resultType="java.util.Map"  statementType="CALLABLE">
         exec PS_WS_Find_DisplayTitle
         #{Display_IP,mode=IN,jdbcType=VARCHAR}
     </select>
