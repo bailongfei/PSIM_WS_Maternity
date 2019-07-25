@@ -2,6 +2,7 @@ package com.xh.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xh.mapper.PlaceDao;
+import com.xh.vo.AvailableBedVo;
 import com.xh.vo.BedVo;
 import com.xh.vo.FindMaternalVo;
 import com.xh.vo.PlaceVo;
@@ -25,6 +26,23 @@ public class PlaceService {
         map.put("resultInfo","服务调用失败！");
         try{
             List<PlaceVo> placeVos = placeDao.call_Place();
+            map.put("result","1");
+            map.put("resultInfo","服务调用成功！");
+            map.put("data",placeVos);
+        }catch (Exception e){
+            e.printStackTrace();
+            map.put("resultInfo","服务调用异常!\t"+e.getMessage());
+        }
+
+        return JSONObject.toJSONString(map);
+    }
+
+    public String find_AvailableBed(){
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("result","0");
+        map.put("resultInfo","服务调用失败！");
+        try{
+            List<AvailableBedVo> placeVos = placeDao.find_AvailableBed();
             map.put("result","1");
             map.put("resultInfo","服务调用成功！");
             map.put("data",placeVos);

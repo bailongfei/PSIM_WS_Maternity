@@ -13,6 +13,12 @@
 
 	</select>
 
+    <!-- 读取可用床位 -->
+    <select id="find_AvailableBed" resultType="com.xh.vo.AvailableBedVo" statementType="CALLABLE">
+        exec   PS_WS_Available_Bed
+
+    </select>
+
 	<!-- 读取床位信息 -->
 	<select id="call_Bed" resultType="com.xh.vo.BedVo" parameterType="String"  statementType="CALLABLE" >
 		exec	PS_WS_Bed
