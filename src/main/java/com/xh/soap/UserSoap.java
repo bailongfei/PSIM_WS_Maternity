@@ -21,6 +21,11 @@ public interface UserSoap {
     @WebResult(name = "placeResult",targetNamespace = "http://NurseService.xh.com")
     public String call_Place();
 
+    //读取产房中剩余的可用床数量
+    @WebMethod(operationName = "find_AvailableBed",action = "http://NurseService.xh.com/find_AvailableBed")
+    @WebResult(name = "findAvailableBedResult",targetNamespace = "http://NurseService.xh.com")
+    public String find_AvailableBed();
+
     //读取床位数据
     @WebMethod(operationName = "call_Bed",action = "http://NurseService.xh.com/call_Bed")
     @WebResult(name = "bedResult",targetNamespace = "http://NurseService.xh.com")
@@ -84,7 +89,7 @@ public interface UserSoap {
             @WebParam(name = "Display_Scroll_Text") String Display_Scroll_Text
     );
 
-    //根据Bed_ID获取相应产房进度状态信息
+    //根据Bed_ID获取相应产妇进度状态信息
     /**所需参数：
      *      Bed_ID      床位ID
      *
