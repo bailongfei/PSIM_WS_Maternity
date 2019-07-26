@@ -10,6 +10,7 @@ public class BedVo {
     private String DisplayType_Status; //产妇试产进度状态
     private String Custom_Type;     //自定义显示状态
     private int DisplayStatus;      //1或0，表示显示哪种状态，可显示已存在的亦可显示自定义的
+    private int Puerpaer_Status;    //产妇出院住院状态
 
     @Override
     public String toString() {
@@ -21,7 +22,16 @@ public class BedVo {
                 ", DisplayType_Status='" + DisplayType_Status + '\'' +
                 ", Custom_Type='" + Custom_Type + '\'' +
                 ", DisplayStatus=" + DisplayStatus +
+                ", Puerpaer_Status=" + Puerpaer_Status +
                 '}';
+    }
+
+    public int getPuerpaer_Status() {
+        return Puerpaer_Status;
+    }
+
+    public void setPuerpaer_Status(int puerpaer_Status) {
+        Puerpaer_Status = puerpaer_Status;
     }
 
     public String getCustom_Type() {
