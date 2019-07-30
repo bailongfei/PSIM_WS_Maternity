@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.xh</groupId>
@@ -10,11 +10,10 @@
   <packaging>war</packaging>
 
   <name>PSIM_WS_Maternity Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <!-- 初始化框架的版本号 -->
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>4.12</junit.version>
     <spring.version>4.1.3.RELEASE</spring.version>
     <mybatis.version>3.4.6</mybatis.version>
@@ -46,6 +45,18 @@
       <artifactId>ini4j</artifactId>
       <version>0.5.4</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.mybatis.generator</groupId>
+      <artifactId>mybatis-generator-core</artifactId>
+      <version>1.3.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.4.6</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
     <!-- job-quartz定时任务JAR包  -->
     <dependency>
@@ -367,71 +378,41 @@
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
-        <configuration>
-          <uriEncoding>UTF-8</uriEncoding>
-          <port>8080</port>
-          <path>/PSIM_WS_Maternity</path><!-- 应用的部署位置 -->
+          <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
       <!-- generator -->
-      <plugin>
-        <groupId>org.mybatis.generator</groupId>
-        <artifactId>mybatis-generator-maven-plugin</artifactId>
-        <version>1.3.2</version>
-        <configuration>
-          <configurationFile>
-            ${basedir}/src/main/resources/generatorConfig.xml
-          </configurationFile>
-        </configuration>
-        <executions>
-          <execution>
-            <id>Generate MyBatis Files</id>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <!--<phase>generate</phase>-->
-            <!--导致本地mapper重新生成 -->
-            <!-- <phase>deploy</phase> -->
-            <configuration>
-              <!--允许移动生成的文件 -->
-              <verbose>true</verbose>
-              <!-- 是否覆盖 -->
-              <overwrite>true</overwrite>
-              <!-- 自动生成的配置 -->
-              <!-- <configurationFile>
-                 src/main/resources/generatorConfig.xml
-              </configurationFile> -->
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-
-          <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc4 -->
-          <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>sqljdbc4</artifactId>
-            <version>4.0</version>
-
-          </dependency>
-
-          <dependency>
-            <groupId>org.mybatis.generator</groupId>
-            <artifactId>mybatis-generator-core</artifactId>
-            <version>1.3.5</version>
-          </dependency>
-          <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.4.6</version>
-          </dependency>
-        </dependencies>
-      </plugin>
+      <!--<plugin>-->
+      <!--<groupId>org.mybatis.generator</groupId>-->
+      <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
+      <!--<version>1.3.2</version>-->
+      <!--<configuration>-->
+      <!--<configurationFile>-->
+      <!--${basedir}/src/main/resources/generatorConfig.xml-->
+      <!--</configurationFile>-->
+      <!--</configuration>-->
+      <!--<executions>-->
+      <!--<execution>-->
+      <!--<id>Generate MyBatis Files</id>-->
+      <!--<goals>-->
+      <!--<goal>generate</goal>-->
+      <!--</goals>-->
+      <!--&lt;!&ndash;<phase>generate</phase>&ndash;&gt;-->
+      <!--&lt;!&ndash;导致本地mapper重新生成 &ndash;&gt;-->
+      <!--&lt;!&ndash; <phase>deploy</phase> &ndash;&gt;-->
+      <!--<configuration>-->
+      <!--&lt;!&ndash;允许移动生成的文件 &ndash;&gt;-->
+      <!--<verbose>true</verbose>-->
+      <!--&lt;!&ndash; 是否覆盖 &ndash;&gt;-->
+      <!--<overwrite>true</overwrite>-->
+      <!--&lt;!&ndash; 自动生成的配置 &ndash;&gt;-->
+      <!--&lt;!&ndash; <configurationFile>-->
+      <!--src/main/resources/generatorConfig.xml-->
+      <!--</configurationFile> &ndash;&gt;-->
+      <!--</configuration>-->
+      <!--</execution>-->
+      <!--</executions>-->
+      <!--</plugin>-->
     </plugins>
   </build>
 </project>
